@@ -1,0 +1,54 @@
+##########################################
+#            cscope vs. ctags
+##########################################
+
+Both: jump from function calls to their definitions
+Diff: 
+  ctags : omni completion
+  cscope: jump to any place where a function is called
+
+#########################################
+#            cscope
+##########################################
+
+Installation
+  Tried with Vim 7.4 @ CentOS 6.7 
+  mkdir $HOME/.vim/plugin
+  Download cscope_maps.vim into $HOME/.vim/plugin 
+  Go to a C code directory and enter 'cscope -Rb' 
+  Start Vim
+    Start Vim with a C symbol 'vim -t main'
+ 
+Using Cscope
+  Cursor at a C symbol
+  'Ctrl-\ s' to search for symbol
+  Select one entry at the popup menu at the bottom
+  'Ctrl-t' to jump back
+  'Ctrl-spacebar s' to search and put result in a new window vertically old one 
+   TODO: Continue with Step 7
+
+Using Cscope's curses-based GUI
+  Arrow keys to move around between search types
+  'tab' to switch between the search types and search results 
+  Hit the number at the far left of a search result to open in Vim
+  'Ctrl-D' to quit 
+
+Issues
+  1. E568
+    Error detected while processing /home/minh/.vim/plugin/cscope_maps.vim:
+    line   42:
+    E568: duplicate cscope database not added
+    Press ENTER or type command to continue
+  
+   Resolve:
+    Why ? Vim is compiled with 'cscope' module enabled. Its has its own cscope.out file. 'cscope -R' returns cscope.out file
+    How ? Rename cscope.out to mycscope.out and modify cscope_maps.vim to load mycscope.out instead of cscope.out
+
+  2. Adding cscope database quitely 
+    Added cscope database /home/minh/LearningNotes/C/mycscope.out
+    Press ENTER or type command to continue
+
+##########################################
+#            ctags
+##########################################
+
