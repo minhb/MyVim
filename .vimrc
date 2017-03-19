@@ -17,3 +17,9 @@ highlight SpecialKey guifg=#4a4a59
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""" Set folding base on syntax
 :set foldmethod=syntax
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""" Enable Pathogen
+execute pathogen#infect()
+
+filetype plugin indent on
+syntax on
